@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>干货集中营-分类阅读</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/gank.css">
+</head>
+
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">干货集中营</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+            <ul class="nav navbar-nav">
+                <li class=""><a href="index.html">首页 <span class="sr-only">(current)</span></a></li>
+                <li class=""><a href="history.html">历史</a></li>
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">分类 <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="category.html?type=1">前端</a></li>
+                        <li><a href="category.html?type=6">福利</a></li>
+                        <li><a href="category.html?type=2">Android</a></li>
+                        <li><a href="category.html?type=3">iOS</a></li>
+                        <!--<li><a href="category.html?type=5">休息视频</a></li>-->
+                        <li><a href="category.html?type=4">拓展资源</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Github</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container" id="category_container">
+</div>
+<footer class="text-muted text-center">
+    Built by <a href="#">sichang</a> | Thanks <a href="http://gank.io">gank.io</a>
+    <p class="tip">为了更好的体验，推荐使用 Chrome 浏览器进行浏览</p>
+</footer>
+<script id="category_container_tpl" type="text/html">
+    <div class="list-group">
+        {{each items as item }}
+        {{ if type === '6' }}
+        <div class="list-group-item"><img src="{{item.url}}" alt="image"></div>
+        {{ else }}
+            <a href="{{item.url}}" target="_blank" class="list-group-item">{{item.desc}}</a>
+        {{/if }}
+        {{/each}}
+    </div>
+    <ul class="pager" id="pager">
+        <li class="previous"><a href="javascript:;" id="older">← Older</a></li>
+        <li class="next"><a href="javascript:;" id="newer">Newer →</a></li>
+    </ul>
+</script>
+<script src="../js/lib/template.js"></script>
+<script data-main="../js/config.js" src="../js/lib/require.js"></script>
+<script type="text/javascript">
+    template.helper('dateFormat', function (date) {
+        return date.replace(/-/g,'/');
+    });
+    require(['config'],function(){
+        require(['../js/page/category']);
+    })
+</script>
+</body>
+
+</html>

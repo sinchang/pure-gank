@@ -1,11 +1,13 @@
 require(['util', 'axios', 'moment'], function(util, axios, moment) {
-    var contextContainer = util.getEleById('index_container');
     var dateEl = util.getEleById('date');
     var date = util.getUrlParam('day') || moment().format('YYYY/MM/DD');
-    /**
-     * 获取每日的数据
-     */
+
     getData(date);
+
+    /**
+     * 获取每日的数据并渲染
+     * @param date
+     */
     function getData(date) {
         util.ajaxGet(util.APIURL + 'history/content/day/' + date + '', function (res) {
             var data = res.data.results;
@@ -14,7 +16,7 @@ require(['util', 'axios', 'moment'], function(util, axios, moment) {
                     data = data[0];
                     dateEl.innerHTML = date;
                     util.renderTpl('index_container', 'index_container_tpl', data);
-                })
+                });
                 return;
             }
             data = data[0];
@@ -23,6 +25,9 @@ require(['util', 'axios', 'moment'], function(util, axios, moment) {
         })
     }
 
+    /**
+     * 点击 next 执行操作
+     */
     util.getEleById('next').onclick = function() {
         var now = dateEl.innerHTML;
         var next = moment(now).add(1, 'days').format('YYYY/MM/DD');
@@ -33,8 +38,11 @@ require(['util', 'axios', 'moment'], function(util, axios, moment) {
         dateEl.innerHTML = next;
         util.setUrlParam('day', next);
         getData(next);
-    }
+    };
 
+    /**
+     * 点击 prev 执行操作
+     */
     util.getEleById('prev').onclick = function() {
         var now = dateEl.innerHTML;
         var prev = moment(now).subtract(1, 'days').format('YYYY/MM/DD');
@@ -46,4 +54,4 @@ require(['util', 'axios', 'moment'], function(util, axios, moment) {
         util.setUrlParam('day', prev);
         getData(prev);
     }
-})
+});

@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>干货集中营-历史</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/gank.css">
 </head>
@@ -28,12 +29,12 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">分类 <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">前端</a></li>
-                            <li><a href="#">福利</a></li>
-                            <li><a href="#">Android</a></li>
-                            <li><a href="#">iOS</a></li>
-                            <li><a href="#">休息视频</a></li>
-                            <li><a href="#">拓展资源</a></li>
+                            <li><a href="category.html?type=1">前端</a></li>
+                            <li><a href="category.html?type=6">福利</a></li>
+                            <li><a href="category.html?type=2">Android</a></li>
+                            <li><a href="category.html?type=3">iOS</a></li>
+                            <!--<li><a href="category.html?type=5">休息视频</a></li>-->
+                            <li><a href="category.html?type=4">拓展资源</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -56,8 +57,8 @@
             {{/each}}
         </div>
     </script>
-    <script src="../bower_components/artTemplate/dist/template.js"></script>
-    <script data-main="../js/config.js" src="../bower_components/requirejs/require.js"></script>
+    <script src="../js/lib/template.js"></script>
+    <script data-main="../js/config.js" src="../js/lib/require.js"></script>
     <script type="text/javascript">
         template.helper('dateFormat', function (date) {
             return date.replace(/-/g,'/');

@@ -4,4 +4,4 @@ require(['util'], function(util) {
         data.items = res.data.results;
         util.renderTpl('history_container', 'history_container_tpl', data)
     })
-})
+});
