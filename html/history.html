@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>干货集中营-首页</title>
+    <title>干货集中营-历史</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/gank.css">
 </head>
@@ -13,17 +13,18 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
                 <a class="navbar-brand" href="#">干货集中营</a>
             </div>
+
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="index.html">首页 <span class="sr-only">(current)</span></a></li>
-                    <li><a href="history.html">历史</a></li>
+                    <li class=""><a href="index.html">首页 <span class="sr-only">(current)</span></a></li>
+                    <li class="active"><a href="history.html">历史</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">分类 <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
@@ -42,32 +43,29 @@
             </div>
         </div>
     </nav>
-    <ul class="pager">
-        <li><a href="javasript:;" id="prev">Previous</a></li>
-        <li>
-            <a href="jaavscript:;" id="date">0000/00/00</a>
-        </li>
-        <li><a href="javasript:;" id="next">Next</a></li>
-    </ul>
-    <div class="container content" id="index_container">
+    <div class="container" id="history_container">
     </div>
     <footer class="text-muted text-center">
         Built by <a href="#">sichang</a> | Thanks <a href="http://gank.io">gank.io</a>
         <p class="tip">为了更好的体验，推荐使用 Chrome 浏览器进行浏览</p>
     </footer>
-    <script id="index_container_tpl" type="text/html">
-        <h2 class="title">{{title}}</h2>
-        <div class="index-content">
-            {{#content}}
+    <script id="history_container_tpl" type="text/html">
+        <div class="list-group">
+            {{each items as item }}
+            <a href="../html?day={{item | dateFormat}}" class="list-group-item">{{item}}</a>
+            {{/each}}
         </div>
     </script>
-    <script src="../js/lib/template.js"></script>
-    <script data-main="../js/config.js" src="../js/lib/require.js"></script>
+    <script src="../bower_components/artTemplate/dist/template.js"></script>
+    <script data-main="../js/config.js" src="../bower_components/requirejs/require.js"></script>
     <script type="text/javascript">
-    require(['config'], function() {
-        require(['page/index']);
-    })
-    </script>
+        template.helper('dateFormat', function (date) {
+            return date.replace(/-/g,'/');
+        });
+		require(['config'],function(){
+			require(['page/history']);
+		})
+	</script>
 </body>
 
 </html>

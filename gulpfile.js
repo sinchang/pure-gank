@@ -37,7 +37,7 @@ gulp.task('default', ['browserSync'], function() {
 
     gulp.watch('css/*.css', browserSync.reload);
 
-    //gulp.watch('js/*.js', browserSync.reload);
+    gulp.watch('js/page/*.js', browserSync.reload);
 
     gulp.watch('html/*.html', browserSync.reload);
 
