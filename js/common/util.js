@@ -73,7 +73,20 @@ define(['axios'], function(axios) {
                     util.removeLoading();
                     console.log(error);
                 });
-        }
+        },
+        navbarToggle: (function () {
+            var navbar = document.querySelector('.navbar-toggle');
+            var collapse = document.querySelector('.navbar-collapse');
+            navbar.onclick = function () {
+                if (this.classList.contains('collapsed')) {
+                    collapse.classList.add('collapse');
+                    this.classList.remove('collapsed');
+                    return;
+                }
+                this.classList.add('collapsed');
+                collapse.classList.remove('collapse');
+            }
+        })()
     };
 
     return util;

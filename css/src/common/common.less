@@ -90,7 +90,7 @@ img {
 }
 
 footer {
-    margin-top: 50px;
+    margin: 50px 0 20px 0;
     .tip {
         margin-top: 10px;
         font-size: 12px;
@@ -102,5 +102,16 @@ footer {
         .dropdown-menu {
             display: block;
         }
+    }
+}
+
+@media (max-width: 767px) {
+    img {
+        max-width: 100%!important;
+        height: auto!important;
+    }
+    iframe {
+        width: 100%!important;
+        height: auto!important;
     }
 }
