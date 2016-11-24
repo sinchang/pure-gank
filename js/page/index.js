@@ -36,7 +36,6 @@ require(['util'], function (util) {
 		var now = dateEl.innerHTML;
 		var next = util.changeDate(now, 'add', 1);
 		if (next > util.formatDate(new Date())) {
-			this.className = 'disabled';
 			return;
 		}
 		dateEl.innerHTML = next;
@@ -51,7 +50,6 @@ require(['util'], function (util) {
 		var now = dateEl.innerHTML;
 		var prev = util.changeDate(now, 'subtract', 1);
 		if (prev < '2015/05/18') {
-			this.className = 'disabled';
 			return;
 		}
 		dateEl.innerHTML = prev;
