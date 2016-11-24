@@ -27,8 +27,13 @@ require(['util'], function (util) {
 			data = data[0];
 			dateEl.innerHTML = date;
 			util.renderTpl('index_container', 'index_container_tpl', data);
+			var imgGroup = document.querySelectorAll('.content ul li ul');
+			imgGroup.forEach(function (element) {
+				element.parentNode.removeChild(element);
+			});
 		})
 	}
+
 	/**
 	 * 点击 next 执行操作
 	 */
