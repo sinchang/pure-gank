@@ -1,4 +1,4 @@
-define(['axios', ['histroy']], function (axios, histroy) {
+define(['axios'], function (axios) {
 	var util = {
 		APIURL: 'http://gank.io/api/',
 		getEleById: function (id) {
@@ -92,7 +92,50 @@ define(['axios', ['histroy']], function (axios, histroy) {
 				this.classList.add('collapsed');
 				collapse.classList.remove('collapse');
 			}
-		})()
+		})(),
+		/**
+		 * 日期返回年月日
+		 * @param date
+		 * @returns {string}
+		 */
+		formatDate: function (date) {
+			date = new Date(date);
+			var isDate = util.isDate(date);
+			if (isDate) {
+				return date.getFullYear() + '/' + (parseInt(date.getMonth()) + 1) + '/' + date.getDate();
+			} else {
+				console.log('传入的日期不正确！');
+			}
+		},
+		/**
+		 * 增加或者减少日期根据天数
+		 * @param date
+		 * @param type
+		 * @param days
+		 * @returns {*|string}
+		 */
+		changeDate: function (date, type, days) {
+			date = new Date(date);
+			if (!util.isDate(date)) {
+				console.log('传入的日期不正确！');
+				return false;
+			}
+			if (type === 'add') {
+				date = date.setDate(date.getDate() + days);
+			} else if (type === 'subtract') {
+				date = date.setDate(date.getDate() - days);
+			}
+			return util.formatDate(date);
+		},
+		/**
+		 * 判断是否是日期格式
+		 * @param date
+		 * @returns {boolean}
+		 */
+		isDate: function (date) {
+			date = new Date(date);
+			return date instanceof Date && !isNaN(date.valueOf());
+		}
 	};
 
 	return util;

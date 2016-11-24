@@ -4,6 +4,5 @@
 
 ### 利用到的库：
 - RequireJS
-- Moment
 - axios
 - artTemplate
