@@ -28,9 +28,9 @@ require(['util'], function (util) {
 			dateEl.innerHTML = date;
 			util.renderTpl('index_container', 'index_container_tpl', data);
 			var imgGroup = document.querySelectorAll('.content ul li ul');
-			imgGroup.forEach(function (element) {
-				element.parentNode.removeChild(element);
-			});
+			for (var i = 0, l = imgGroup.length; i < l; i++) {
+				imgGroup[i].parentNode.removeChild(imgGroup[i]);
+			}
 		})
 	}
 
