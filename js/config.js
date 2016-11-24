@@ -4,5 +4,6 @@ requirejs.config({
         moment: 'lib/moment.min',
         artTemplate: 'lib/artTemplate',
 		util: 'common/util',
+		history: 'lib/history'
 	}
-})
+});
