@@ -60,5 +60,7 @@ require(['util'], function (util) {
 		dateEl.innerHTML = prev;
 		util.setUrlParam('day', prev);
 		getData(prev);
-	}
+	};
+
+	new util.Newpost();
 });

@@ -28,10 +28,14 @@ require(['util'], function (util) {
             typeStr = '拓展资源';
             getData(page, typeStr, switchPage());
             break;
-        // case '5':
-        //     typeStr = '休息视频';
-        //     getData(page, typeStr, switchPage());
-        //     break;
+        case '5':
+            typeStr = 'App';
+            getData(page, typeStr, switchPage());
+            break;
+		case '7':
+			typeStr = '瞎推荐';
+			getData(page, typeStr, switchPage());
+			break;
 
     }
 
@@ -76,4 +80,5 @@ require(['util'], function (util) {
         });
     }
 
+	new util.Newpost();
 });
