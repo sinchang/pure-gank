@@ -187,7 +187,7 @@ define(['axios'], function (axios) {
 				'<label class="col-lg-2 control-label">干货类型</label> ' +
 				'<div class="col-lg-10"> ' +
 				'<select class="form-control" id="select"> ' +
-				'<option value="Android ">Android</option> ' +
+				'<option value="Android">Android</option> ' +
 				'<option value="iOS">iOS</option> ' +
 				'<option value="休息视频">休息视频</option> ' +
 				'<option value="福利">福利</option> ' +
