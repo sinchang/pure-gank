@@ -256,8 +256,8 @@ define(['axios'], function (axios) {
 				url: util.checkUrl(util.getEleById('url').value) ? util.getEleById('url').value : null,
 				desc: util.getEleById('desc').value,
 				who: util.getEleById('username').value,
-				type: util.getEleById('select').value
-				//debug: true
+				type: util.getEleById('select').value,
+				debug: false
 			};
 		},
 		submit: function (data, cb) {
