@@ -1,7 +1,7 @@
 requirejs.config({
 	paths: {
 		axios: 'lib/axios.min',
-        artTemplate: 'lib/artTemplate',
+        template: 'lib/template',
 		util: 'common/util'
 	}
 });

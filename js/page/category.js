@@ -53,7 +53,6 @@ require(['util'], function (util) {
             var data = {};
             data.items = res.data.results;
             data.type = type;
-            console.log(data);
             util.renderTpl('category_container', 'category_container_tpl', data);
             util.setUrlParam('page', page);
             util.getEleById('newer').setAttribute('data-page', (parseInt(page) + 1));

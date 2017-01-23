@@ -67,12 +67,8 @@
         <li class="next"><a href="javascript:;" id="newer">Newer →</a></li>
     </ul>
 </script>
-<script src="../js/lib/template.js"></script>
 <script data-main="../js/config.js" src="../js/lib/require.js"></script>
 <script type="text/javascript">
-    template.helper('dateFormat', function (date) {
-        return date.replace(/-/g,'/');
-    });
     require(['config'],function(){
         require(['../js/page/category']);
     })
