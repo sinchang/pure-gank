@@ -26,6 +26,7 @@ require(['util'], function (util) {
 			}
 			data = data[0];
 			dateEl.innerHTML = date;
+			util.setUrlParam('day', date);
 			util.renderTpl('index_container', 'index_container_tpl', data);
 			var imgGroup = document.querySelectorAll('.content ul li ul');
 			for (var i = 0, l = imgGroup.length; i < l; i++) {
