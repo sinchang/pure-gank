@@ -21,6 +21,7 @@ require(['util'], function (util) {
 					return;
 				}
 				dateEl.innerHTML = date;
+				util.setUrlParam('day', date);
 				util.getEleById('index_container').innerHTML = '非常抱歉，今日无数据！';
 				return;
 			}

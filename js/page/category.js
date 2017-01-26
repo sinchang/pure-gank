@@ -36,7 +36,6 @@ require(['util'], function (util) {
 			typeStr = '瞎推荐';
 			getData(page, typeStr, switchPage());
 			break;
-
     }
 
     /**
@@ -67,7 +66,6 @@ require(['util'], function (util) {
     function switchPage() {
         document.addEventListener('click', function (e) {
             e = e || window.event;
-            console.log(e.target);
             if (e.target.getAttribute('data-page')) {
                 var page = e.target.getAttribute('data-page');
                 if (page <= 0) {

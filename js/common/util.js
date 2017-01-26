@@ -1,5 +1,4 @@
 define(['axios','template'], function (axios, template) {
-	console.log(template);
 	var util = {
 		APIURL: 'http://gank.io/api/',
 		getEleById: function (id) {
