@@ -18,23 +18,23 @@ require(['util'], function (util) {
             break;
         case '2':
             typeStr = 'Android';
-            getData(page, typeStr, switchPage());
+            getData(page, typeStr, switchPage);
             break;
         case '3':
             typeStr = 'iOS';
-            getData(page, typeStr, switchPage());
+            getData(page, typeStr, switchPage);
             break;
         case '4':
             typeStr = '拓展资源';
-            getData(page, typeStr, switchPage());
+            getData(page, typeStr, switchPage);
             break;
         case '5':
             typeStr = 'App';
-            getData(page, typeStr, switchPage());
+            getData(page, typeStr, switchPage);
             break;
 		case '7':
 			typeStr = '瞎推荐';
-			getData(page, typeStr, switchPage());
+			getData(page, typeStr, switchPage);
 			break;
     }
 
@@ -56,7 +56,7 @@ require(['util'], function (util) {
             util.setUrlParam('page', page);
             util.getEleById('newer').setAttribute('data-page', (parseInt(page) + 1));
             util.getEleById('older').setAttribute('data-page', (parseInt(page) - 1));
-            cb();
+            cb && cb();
         })
     }
 
